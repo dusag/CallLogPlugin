@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cz.raynet.raynetcrm.CallLogPlugin" version="0.0.12"
+xmlns="http://apache.org/cordova/ns/plugins/1.0"
+xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>Call Log Plugin</name>
+    <description>Cordova plugin for logging calls</description>
+	<license>MIT</license>
+
+	<engines>
+		<engine name="cordova" version=">=3.2.0" />
+	</engines>
+
+	<platform name="android">
+		<js-module name="CallLogPlugin" src="www/calllog.js">
+			<clobbers target="CallLogPlugin" />
+		</js-module>
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="CallLogPlugin">
+				<param name="android-package" value="cz.raynet.raynetcrm.CallLogPlugin" />
+				<param name="onload" value="true" />
+			</feature>
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<receiver android:name="cz.raynet.raynetcrm.CallReceiver" >
+                <intent-filter>
+                    <action android:name="android.intent.action.PHONE_STATE" />
+                </intent-filter>
+                <intent-filter>
+                    <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+                </intent-filter>
+            </receiver>
+            <receiver android:name="cz.raynet.raynetcrm.CallDialogActionReceiver" >
+            </receiver>
+		</config-file>
+		<source-file src="src/android/CallLogPlugin.java" target-dir="src/cz/raynet/raynetcrm/calllog" />
+		<source-file src="src/android/CallDialogActionReceiver.java" target-dir="src/cz/raynet/raynetcrm/calllog" />
+		<source-file src="src/android/CallDialog.java" target-dir="src/cz/raynet/raynetcrm/calllog" />
+		<source-file src="src/android/CallReceiver.java" target-dir="src/cz/raynet/raynetcrm/calllog" />
+
+		<resource-file src="src/android/res/drawable-hdpi/fcm_push_icon.png" target="res/drawable-hdpi/fcm_push_icon.png" />
+		<resource-file src="src/android/res/drawable-mdpi/fcm_push_icon.png" target="res/drawable-mdpi/fcm_push_icon.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/fcm_push_icon.png" target="res/drawable-xhdpi/fcm_push_icon.png" />
+		<resource-file src="src/android/res/drawable-xxhdpi/fcm_push_icon.png" target="res/drawable-xxhdpi/fcm_push_icon.png" />
+		<resource-file src="src/android/res/drawable-xxxhdpi/fcm_push_icon.png" target="res/drawable-xxxhdpi/fcm_push_icon.png" />
+	</platform>
+</plugin>

@@ -1,0 +1,28 @@
+{
+  "author": {
+    "name": "Dusan Galik"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dusag/CallLogPlugin.git"
+  },
+  "name": "cz.raynet.raynetcrm.CallLogPlugin",
+  "version": "0.0.1",
+  "description": "Cordova plugin for logging calls",
+  "cordova": {
+    "id": "cz.raynet.raynetcrm.CallLogPlugin",
+    "platforms": [
+      "android",
+      "ios",
+      "browser"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-browser",
+    "calllog"
+  ]
+}
