@@ -25,7 +25,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
             <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
 		</config-file>
 		<config-file target="AndroidManifest.xml" parent="/manifest/application">
-			<receiver android:name="cz.raynet.raynetcrm.CallReceiver" >
+			<receiver android:name="cz.raynet.raynetcrm.calllog.CallReceiver" >
                 <intent-filter>
                     <action android:name="android.intent.action.PHONE_STATE" />
                 </intent-filter>
@@ -33,13 +33,13 @@ xmlns:android="http://schemas.android.com/apk/res/android">
                     <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
                 </intent-filter>
             </receiver>
-            <receiver android:name="cz.raynet.raynetcrm.CallDialogActionReceiver" >
+            <receiver android:name="cz.raynet.raynetcrm.calllog.CallDialogActionReceiver" >
             </receiver>
 		</config-file>
-		<source-file src="src/android/CallLogPlugin.java" target-dir="src/cz/raynet/raynetcrm/calllog" />
-		<source-file src="src/android/CallDialogActionReceiver.java" target-dir="src/cz/raynet/raynetcrm/calllog" />
-		<source-file src="src/android/CallDialog.java" target-dir="src/cz/raynet/raynetcrm/calllog" />
-		<source-file src="src/android/CallReceiver.java" target-dir="src/cz/raynet/raynetcrm/calllog" />
+		<source-file src="src/android/CallLogPlugin.java" target-dir="src/cz/raynet/raynetcrm" />
+		<source-file src="src/android/calllog/CallDialogActionReceiver.java" target-dir="src/cz/raynet/raynetcrm/calllog" />
+		<source-file src="src/android/calllog/CallDialog.java" target-dir="src/cz/raynet/raynetcrm/calllog" />
+		<source-file src="src/android/calllog/CallReceiver.java" target-dir="src/cz/raynet/raynetcrm/calllog" />
 
 		<resource-file src="src/android/res/drawable-hdpi/fcm_push_icon.png" target="res/drawable-hdpi/fcm_push_icon.png" />
 		<resource-file src="src/android/res/drawable-mdpi/fcm_push_icon.png" target="res/drawable-mdpi/fcm_push_icon.png" />

@@ -1,4 +1,4 @@
-package cz.raynet.raynetcrm.calllog;
+package cz.raynet.raynetcrm;
 
 import android.content.Intent;
 import android.os.Bundle;
